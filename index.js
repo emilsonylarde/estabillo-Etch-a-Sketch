@@ -1,13 +1,19 @@
-const container = document.getElementById("container");
+//creates a default board of 16x16
+function populateBoard(size) {
+  let board = document.querySelector(".board");
+  board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+  board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
 
-function makeRows(rows, cols) {
-    container.style.setProperty('--grid-rows', rows);
-    container.style.setProperty('--grid-cols', cols);
-    for (c = 0; c < (rows * cols); c++) {
-        let cell = document.createElement ("div");
-        cell.innerText = (c + 1);
-        container.appendChild(cell).className ="grid-item";
-    }
+  for (let i = 0; i < 256; i++) {
+    let square = document.createElement("div");
+    square.style.backgroundColor = "blue";
+    board.insertAdjacentElement("beforeend", square);
+  }
 }
 
-makeRows (16, 16);
+populateBoard(16);
+
+//a function to change board size
+function changeSize(input) {
+  populateBoard(input);
+}
