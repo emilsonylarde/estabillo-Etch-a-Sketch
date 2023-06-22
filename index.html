@@ -81,13 +81,24 @@
               padding: 5px;
             "
           ></button>
+
+          <button
+            onclick="changeColor('orange')"
+            style="
+              background-color: orange;
+              height: 25px;
+              width: 25px;
+              border-style: none;
+              padding: 5px;
+            "
+          ></button>
           <button onclick="changeColor('random')" style="padding: 5px">
             Random
           </button>
           <button onclick="changeColor('white')" style="padding: 5px">
             Eraser
           </button>
-          <button style="padding: 5px">Reset</button>
+          <button onclick="resetBoard()" style="padding: 5px">Reset</button>
         </div>
       </div>
     </div>
