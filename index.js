@@ -30,7 +30,7 @@ function changeSize(input) {
 
 //a function to color square
 function colorSquare() {
-  if ((color === "random")) {
+  if (color === "random") {
     this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
   } else {
     this.style.backgroundColor = color;
