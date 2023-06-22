@@ -24,9 +24,10 @@ populateBoard(16);
 //a function to change board size
 function changeSize(input) {
   if (input >= 2 && input <= 100) {
+    document.querySelector(".error").style.display = "none";
     populateBoard(input);
   } else {
-    console.log("Too many squares!");
+    document.querySelector(".error").style.display = "flex";
   }
 }
 
@@ -52,11 +53,13 @@ function resetBoard() {
 }
 
 //adds event listener for the click event
-document.querySelector("body").addEventListener("click", () => {
-  click = !click;
-  if (click) {
-    document.querySelector(".mode").textContent = "Mode: Coloring";
-  } else {
-    document.querySelector(".mode").textContent = "Mode: Not Coloring";
+document.querySelector("body").addEventListener("click", (e) => {
+  if (e.target.tagName != "BUTTON") {
+    click = !click;
+    if (click) {
+      document.querySelector(".mode").textContent = "Mode: Coloring";
+    } else {
+      document.querySelector(".mode").textContent = "Mode: Not Coloring";
+    }
   }
 });
