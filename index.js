@@ -1,4 +1,6 @@
 let color = "black";
+//this is to let click be true to draw
+let click = false;
 
 //creates a default board of 16x16
 function populateBoard(size) {
@@ -30,10 +32,12 @@ function changeSize(input) {
 
 //a function to color square
 function colorSquare() {
-  if (color === "random") {
-    this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-  } else {
-    this.style.backgroundColor = color;
+  if (click) {
+    if (color === "random") {
+      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } else {
+      this.style.backgroundColor = color;
+    }
   }
 }
 
@@ -46,3 +50,8 @@ function resetBoard() {
   let squares = board.querySelectorAll("div");
   squares.forEach((div) => (div.style.backgroundColor = "white"));
 }
+
+//adds event listener for the click event
+document.querySelector("body").addEventListener('click', () => {
+  click = !click;
+})
