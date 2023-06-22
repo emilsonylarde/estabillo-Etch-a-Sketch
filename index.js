@@ -1,6 +1,6 @@
 let color = "black";
 //this is to let click be true to draw
-let click = false;
+let click = true;
 
 //creates a default board of 16x16
 function populateBoard(size) {
@@ -52,6 +52,11 @@ function resetBoard() {
 }
 
 //adds event listener for the click event
-document.querySelector("body").addEventListener('click', () => {
+document.querySelector("body").addEventListener("click", () => {
   click = !click;
-})
+  if (click) {
+    document.querySelector(".mode").textContent = "Mode: Coloring";
+  } else {
+    document.querySelector(".mode").textContent = "Mode: Not Coloring";
+  }
+});
